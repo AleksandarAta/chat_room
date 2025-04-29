@@ -14,6 +14,8 @@ class ConnectionActions extends Component
     public $call_with = '';
     public $call_type = '';
 
+
+
     #[On('startVoice')]
     public function startVoice($id , $room_id, $name){
         Log::info('Friend Actions');
@@ -32,9 +34,10 @@ class ConnectionActions extends Component
         // dd($id, $name , $type);
         $this->call = 'ringing';
         $this->call_with =$name;
+        $this->call_id = $id;
         $this->call_type= $type;
         $this->dispatch('startChat', $id , $name)->to(Chat::class);
-        $this->dispatch('ringing', $id, $name, $type);
+        // $this->dispatch('ringing', $id, $name, $type);
     }
 
     public function voiceReady() {

@@ -72,7 +72,7 @@ class Chat extends Component
     {
         $this->dispatch('startVideo', $id, $name, $room_id)->to(ConnectionActions::class);
         $notify_user = User::find($id);
-        $notify_user->notify(new \App\Notifications\CallRequest("video", Auth::id(), Auth::user()->name));
+        $notify_user->notify(new \App\Notifications\CallRequest(Auth::id(),"video", Auth::user()->name));
     }
     
     public function render()

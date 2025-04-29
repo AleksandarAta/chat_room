@@ -58,7 +58,7 @@ class Notifcation extends Component
                 $this->dispatch('ringing', $id, $friend_name, 'voice')->to(ConnectionActions::class);
             } elseif ($notification['event'] == 'video') {
                 $id = $notification['friend_id'];
-                $friend_name = $notification['friend_name'];
+                $friend_name = $notification['name'];
                 $this->dispatch('ringing', $id, $friend_name, 'video')->to(ConnectionActions::class);
             }
         }

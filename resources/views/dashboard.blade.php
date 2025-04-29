@@ -75,7 +75,8 @@
         })
 
         window.addEventListener('start_call', event => {
-            startCall(event.detail.constraints, event.detail.offerer);
+          console.log(event);
+            startCall(event.detail[0].constraints, event.detail[0].offerer);
             console.log(event.detail.constraints);
             console.log(event.detail.offerer);
             console.log('Started call');
